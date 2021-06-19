@@ -1,24 +1,59 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|Column  |Type  |Option    |
+|--------|------|----------|
+|name    |string|null:false|
+|email   |string|null:false|
+|password|string|null:false|
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :posts
+- has_many :comments
+- has_many :likes
 
-* Configuration
+## postsテーブル
 
-* Database creation
+|Column      |Type   |Option    |
+|------------|-------|----------|
+|name        |string |null:false|
+|area_id     |integer|null:false|
+|hiking_date |date   |          |
+|time        |string |          |
+|route_name  |string |          |
+|route_detail|text   |          |
+|comment     |text   |          |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :comments
+- has_many :likes
 
-* Services (job queues, cache servers, search engines, etc.)
+## commentsテーブル
 
-* Deployment instructions
+|Column|Type      |Option                       |
+|------|----------|----------                   |
+|text  |test      |null:false                   |
+|user  |references|null:false, foreign_key: true|
+|post  |references|null:false, foreign_key: true|
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :post
+
+## Likesテーブル
+
+|Column|Type      |Option                       |
+|------|----------|-----------------------------|
+|user  |references|null:false, foreign_key: true|
+|post  |references|null:false, foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- belongs_to :post
+
