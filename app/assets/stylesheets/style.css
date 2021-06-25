@@ -37,7 +37,7 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  background-color: #BDB76B;
   margin-bottom: 48px;
   padding: 20px 0;
 
@@ -52,22 +52,22 @@ a {
   justify-content: space-between;
 }
 .logo {
-  width: 200px;
+  width: 70px;
 }
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #B8860B;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #B8860B solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #B8860B;
 }
 
 .nav__logout{
