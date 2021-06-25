@@ -35,7 +35,7 @@
 ## commentsテーブル
 
 |Column|Type      |Option                       |
-|------|----------|----------                   |
+|------|----------|-----------------------------|
 |text  |test      |null:false                   |
 |user  |references|null:false, foreign_key: true|
 |post  |references|null:false, foreign_key: true|
