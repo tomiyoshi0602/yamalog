@@ -1,0 +1,45 @@
+<%= form_with model: post, local: true do |f|%>
+  <div class="field">
+    <%= f.label :name, "山の名前" %><br />
+    <%= f.text_field :name, id:"prototype_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area_id, "地域" %><br />
+    <%= f.collection_select(:area_id, [], :id, :name, {}, {class: "select-box", id:"area_category"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hiking_date, "日程" %><br />
+    <%= f.text_field :hiking_date, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time, "所要時間" %><br />
+    <%= f.text_field :time, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :route_name, "コース名" %><br />
+    <%= f.text_field :route_name, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :route_detail, "コース詳細" %><br />
+    <%= f.text_area :route_detail, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment, "感想" %><br />
+    <%= f.text_area :comment, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "ハイキングの画像" %><br />
+    <%= f.file_field :image, id:"prototype_image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

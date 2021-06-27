@@ -90,6 +90,11 @@ a {
   width: 50%;
 }
 
+.select-box {
+  width: 20%;
+  padding-left: 20px;
+}
+
 .field{
   margin: 10px 0;
 }
