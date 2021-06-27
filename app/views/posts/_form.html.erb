@@ -1,4 +1,5 @@
 <%= form_with model: post, local: true do |f|%>
+  <%= render 'shared/error_messages', model: f.object %>
   <div class="field">
     <%= f.label :name, "山の名前" %><br />
     <%= f.text_field :name, id:"prototype_title" %>
@@ -6,12 +7,12 @@
 
   <div class="field">
     <%= f.label :area_id, "地域" %><br />
-    <%= f.collection_select(:area_id, [], :id, :name, {}, {class: "select-box", id:"area_category"}) %>
+    <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "select-box", id:"area_category"}) %>
   </div>
 
   <div class="field">
     <%= f.label :hiking_date, "日程" %><br />
-    <%= f.text_field :hiking_date, class: :form__text, id:"prototype_concept" %>
+    <%= f.date_field :hiking_date, class: :form__text, id:"prototype_concept" %>
   </div>
 
   <div class="field">
