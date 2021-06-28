@@ -28,6 +28,11 @@ img {
   vertical-align: bottom;
 }
 
+.preview-image {
+ max-width: 20%;
+ object-fit: contain;
+}
+
 a {
   text-decoration: none;
   color: #3b4043;
