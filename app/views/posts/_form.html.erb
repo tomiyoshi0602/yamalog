@@ -1,33 +1,33 @@
 <%= form_with model: post, local: true do |f|%>
   <%= render 'shared/error_messages', model: f.object %>
   <div class="field">
-    <%= f.label :name, "山の名前" %><br />
-    <%= f.text_field :name, id:"prototype_title" %>
+    <%= f.label :name, "山の名前" %><span class="indispensable">必須</span><br />
+    <%= f.text_field :name, placeholder: "例)塔ノ岳", id:"prototype_title" %>
   </div>
 
   <div class="field">
-    <%= f.label :area_id, "地域" %><br />
+    <%= f.label :area_id, "地域" %><span class="indispensable">必須</span><br />
     <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "select-box", id:"area_category"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :hiking_date, "日程" %><br />
+    <%= f.label :hiking_date, "日程" %><span class="indispensable">必須</span><br />
     <%= f.date_field :hiking_date, class: :form__text, id:"prototype_concept" %>
   </div>
 
   <div class="field">
     <%= f.label :time, "所要時間" %><br />
-    <%= f.text_field :time, class: :form__text, id:"prototype_concept" %>
+    <%= f.text_field :time, placeholder: "例)　6時間30分", class: :form__text, id:"prototype_concept" %>
   </div>
 
   <div class="field">
     <%= f.label :route_name, "コース名" %><br />
-    <%= f.text_field :route_name, class: :form__text, id:"prototype_concept" %>
+    <%= f.text_field :route_name, placeholder: "例)　大倉往復コース", class: :form__text, id:"prototype_concept" %>
   </div>
 
   <div class="field">
     <%= f.label :route_detail, "コース詳細" %><br />
-    <%= f.text_area :route_detail, class: :form__text, id:"prototype_concept" %>
+    <%= f.text_area :route_detail, placeholder: "例)　大倉（50分）→雑事場ノ平（70分）→小草平（25分）→天神尾根分岐（50分）→金冷シ（25分）→塔ノ岳（15分）→金冷シ（35分）→天神尾根分岐（15分）→小草平（50分）→雑事場ノ平（35分）→大倉", class: :form__text, id:"prototype_concept" %>
   </div>
 
   <div class="field">
@@ -36,12 +36,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :image, "ハイキングの画像" %><br />
+    <%= f.label :image, "ハイキングの画像" %><span class="indispensable">必須</span><br />
     <%= f.file_field :image, id:"prototype_image" %>
   </div>
+  <div id="image-list"></div>
 
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn  %>
+    <%= f.submit "投稿する", class: :form__btn  %>
   </div>
-  <div id="image-list"></div>
+
 <% end %>
