@@ -2,6 +2,6 @@
   <%= link_to image_tag(post.image, class: :card__img ), post_path(post.id) %>
   <div class="card__body">
     <%= link_to post.name, post_path(post.id), class: :card__title%>
-    <%= link_to "by #{post.user.name}", root_path, class: :card__user %>
+    <%= link_to "by #{post.user.name}", "/users/#{post.user.id}", class: :card__user %>
   </div>
 </div>
