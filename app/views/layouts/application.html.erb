@@ -16,6 +16,10 @@
         <div class="nav">
           <div class="nav__left">
             <%= link_to image_tag("logo.png", class: :logo), root_path %>
+            <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+              <%= form.text_field :keyword, placeholder: "山の名前で検索する", class: "search-input" %>
+              <%= form.submit "検索", class: "search-btn" %>
+            <% end %>
           </div>
           <% if user_signed_in? %>
             <div class="nav__right"> 
