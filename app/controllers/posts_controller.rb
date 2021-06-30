@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update]
-  before_action :search_area
+  
 
   def index
     @posts = Post.order('created_at DESC')
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @like = Like.new
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
   end
@@ -67,7 +68,5 @@ class PostsController < ApplicationController
     end
   end
 
-  def search_area
-    @q = Post.ransack(params[:q])
-  end
+
 end
