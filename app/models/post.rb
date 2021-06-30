@@ -11,4 +11,11 @@ class Post < ApplicationRecord
     validates :area_id, numericality: { other_than: 1 }
   end
 
+  def self.search(search)
+    if search != ""
+      Post.where('name LIKE(?)', "%#{search}%")
+    else
+      Post.all
+    end
+  end
 end
