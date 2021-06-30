@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
 
+  get '/post/area', to: "posts#area"
+
 end

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update]
+  before_action :search_area
 
   def index
     @posts = Post.order('created_at DESC')
@@ -27,6 +28,12 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword])
+  end
+
+  def area
+    @posts = @q.result
+    area_id = params[:q][:area_id_eq]
+    @area = Area.find_by(id: area_id)
   end
 
   def edit
@@ -58,5 +65,9 @@ class PostsController < ApplicationController
     unless current_user.id == post.user_id
       redirect_to action: :index
     end
+  end
+
+  def search_area
+    @q = Post.ransack(params[:q])
   end
 end
