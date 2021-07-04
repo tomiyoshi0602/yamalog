@@ -1,48 +1,49 @@
 <main class="main">
   <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
+    <div class="post__wrapper">
+      <p class="post__hedding">
         <%= @post.name %>
       </p>
-      <%= link_to "by #{@post.user.name}", "/users/#{@post.user.id}", class: :prototype__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <%= link_to "by #{@post.user.name}", "/users/#{@post.user.id}", class: :post__user %>
+
       <% if user_signed_in? && current_user.id == @post.user_id %>
-        <div class="prototype__manage">
-          <%= link_to "編集する", edit_post_path(@post.id), class: :prototype__btn %>
-          <%= link_to "削除する", post_path(@post.id), method: :delete, class: :prototype__btn %>
+        <div class="post__manage">
+          <%= link_to "編集する", edit_post_path(@post.id), class: :post__btn %>
+          <%= link_to "削除する", post_path(@post.id), method: :delete, class: :post__btn %>
         </div>
       <% end %>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
-      <div class="prototype__image">
+
+      <div class="post__image">
         <%= image_tag @post.image %>
       </div>
-      <div class="prototype__body">
-        <div class="prototype__detail">
+      <div class="post__body">
+        <div class="post__detail">
           <p class="detail__title">ハイキング実施日</p>
           <p class="detail__message">
             <%= @post.hiking_date %>
           </p>
         </div>
-        <div class="prototype__detail">
+        <div class="post__detail">
           <p class="detail__title">コース名</p>
           <p class="detail__message">
             <%= @post.route_name %>
           </p>
         </div>
-        <div class="prototype__detail">
+        <div class="post__detail">
           <p class="detail__title">コース詳細</p>
           <p class="detail__message">
             <%= @post.route_detail %>
           </p>
         </div>
-        <div class="prototype__detail">
+        <div class="post__detail">
           <p class="detail__title">感想</p>
           <p class="detail__message">
             <%= @post.comment %>
           </p>
         </div>
       </div>
-      <div class="prototype__comments">
+      <div class="post__comments">
+
       <% if user_signed_in? %>
         <% if current_user.already_liked?(@post) %>
           <%= link_to post_like_path(@post), method: :delete do %>
@@ -58,7 +59,7 @@
         <span class="fas fa-heart"></span>
         <%= @post.likes.count %>
       <% end %>
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+
       <% if user_signed_in? %>
         <%= form_with model: [@post, @comment],local: true do |f|%>
           <div class="field">
@@ -70,16 +71,14 @@
           </div>
         <% end %> 
       <% end %>
-        <%# // ログインしているユーザーには上記を表示する %>
+      
       <ul class="comments_lists">
-        <%# 投稿に紐づくコメントを一覧する処理を記述する %>
         <% @comments.each do |comment| %>
           <li class="comments_list">
             <%= comment.text %>
             <%= link_to "(#{comment.user.name})", "/users/#{comment.user.id}", class: :comment_user %>
           </li>
         <% end %>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         </ul>
       </div>
     </div>

@@ -17,24 +17,24 @@
         <div class="nav">
           <div class="nav__left">
             <%= link_to image_tag("logo.png", class: :logo), root_path %>
-            <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+            <%= form_with(url: search_posts_path, local: true, method: :get, class: "search__form") do |form| %>
               <%= form.text_field :keyword, placeholder: "山の名前で検索する", class: "search-input" %>
-              <%= form.submit "検索", class: "search-btn" %>
+              <%= form.submit "search", class: "search-btn" %>
             <% end %>
             <%= search_form_for @q, url: post_area_path do |f| %>
-              <%= f.collection_select :area_id_eq, Area.where.not(id: 1), :id, :name, include_blank: "地域で検索" %>
-              <%= f.submit '検索' %>
+              <%= f.collection_select :area_id_eq, Area.where.not(id: 1), :id, :name, include_blank: "地域で検索", class: "search__form"%>
+              <%= f.submit "search", class: "search-btn"%>
             <% end %>
           </div>
           <% if user_signed_in? %>
             <div class="nav__right"> 
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__btn %>
-              <%= link_to "新規投稿", new_post_path, class: :nav__btn %>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: :nav__btn %>
+              <%= link_to "New Post", new_post_path, class: :nav__btn %>
             </div> 
           <% else %>
             <div class="nav__right">
-              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+              <%= link_to "Log In", new_user_session_path, class: :nav__btn %>
+              <%= link_to "Register", new_user_registration_path, class: :nav__btn %>
             </div>
           <% end %>
         </div>
@@ -42,7 +42,7 @@
     </header>
     <%= yield %>
     <footer class="footer">
-      <p class="copyright">Copyright © PROTO SPACE All rights reserved.</p>
+      <p class="copyright">Copyright © YamaLog All rights reserved.</p>
     </footer>
   </body>
 </html>

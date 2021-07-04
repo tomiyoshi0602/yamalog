@@ -15,7 +15,7 @@ div {
 }
 
 body {
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+  font-family: "", "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
   color: #3b4043;
 }
 
@@ -42,7 +42,6 @@ a {
 
 .header {
   background-color: #BDB76B;
-  margin-bottom: 48px;
   padding: 20px 0;
 
 }
@@ -58,11 +57,26 @@ a {
 .logo {
   width: 70px;
 }
+.search__form{
+ font
+}
+.search-btn{
+  color: #b8860b;
+  font-family: "Arial Black";
+  background-color: transparent;
+  border-radius: 3px;
+  border: 1px #B8860B solid;
+}
+.search-btn:hover{
+  color: #fff;
+  background: #B8860B;
+}
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
   color: #B8860B;
+  font-family: "Arial Black";
   text-decoration: none;
   user-select: none;
   border: 1px #B8860B solid;
@@ -125,8 +139,8 @@ a {
   color: #fff;
   text-decoration: none;
   user-select: none;
-  background: #87CEFA;
-  border: 1px #87CEFA solid;
+  background: #B8860B;
+  border: 1px #B8860B solid;
   border-radius: 3px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   transition: 0.2s ease;
@@ -138,12 +152,23 @@ a {
 }
 
 /* メイン */
-
+section{
+  height: 25vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.hero{
+  background-color: #ece7b9;
+  text-align: center;
+  padding-top: 5vh;
+}
 .greeting{
   margin-bottom: 20px;
+  font-size: 30px;
 }
 .greeting__link{
-  text-decoration: underline;
+  text-decoration: none;
 }
 .page-heading {
   font-size: 30px;
@@ -181,27 +206,27 @@ a {
 }
 
 /* 詳細ページ */
-.prototype__wrapper{
+.post__wrapper{
   min-height: calc(100vh - 161px);
 }
-.prototype__hedding{
+.post__hedding{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
-.prototype__user{
+.post__user{
   display: block;
   font-size: 16px;
   color: #999;
   text-align: center;
   text-decoration: underline;
 }
-.prototype__image{
+.post__image{
   width: 40%;
   margin: 0 auto;
   padding: 16px 0;
 }
-.prototype__detail{
+.post__detail{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -211,13 +236,12 @@ a {
   font-size: 20px;
   font-weight: bold;
 }
-
-.prototype__manage{
+.post__manage{
   display: flex;
   justify-content: center;
   padding-top: 16px;
 }
-.prototype__btn{
+.post__btn{
   display: block;
   padding: 0.4em 1.6em;
   font-size: 0.4em;
@@ -229,12 +253,12 @@ a {
   transition: 0.4s ease;
   margin: 0 4px;
 }
-.prototype__btn:hover{
+.post__btn:hover{
   color: #fff;
   background: #999;
 }
 
-.prototype__comments{
+.post__comments{
   background-color: #f6f6f6;
   padding: 20px;
   margin: 28px 0 40px 0;
@@ -334,7 +358,7 @@ a {
   .card__summary {
     font-size: 14px;
   }
-  .prototype_image{
+  .post_image{
     width: 100%;
   }
   .table{

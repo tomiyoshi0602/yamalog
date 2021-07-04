@@ -1,12 +1,18 @@
 <main class="main">
+  <section class="hero">
+    <h1 class="main_title">ハイキングの記録をつけよう</h1>
+    <p>
+      YamaLogを使ってハイキングの記録を残し、共有することができます。<br>
+      他のユーザーの投稿を参考に、次のハイキングの計画を立てよう。
+    </p>
+  </section>
   <div class="inner">
     <% if user_signed_in? %>
-      <div class="greeting">
+      <h2 class="greeting">
         <%= link_to "#{current_user.name}", "/users/#{current_user.id}", class: :greeting__link%>
-      </div>
+      </h2>
     <% end %>
     <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
     <%= render partial: "post", collection: @posts %>
     </div>
   </div>
