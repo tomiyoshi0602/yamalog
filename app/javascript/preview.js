@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
-  document.getElementById('prototype-image')
+  document.getElementById('post-image')
   const ImageList = document.getElementById('image-list');
 
-  document.getElementById('prototype_image').addEventListener('change', function(e){
+  document.getElementById('post_image').addEventListener('change', function(e){
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
 
